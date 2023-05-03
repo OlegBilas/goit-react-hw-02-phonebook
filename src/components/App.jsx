@@ -41,6 +41,15 @@ export class App extends Component {
       return contacts.sort((a, b) => a.name.localeCompare(b.name));
     }
   };
+
+  removeContact = e => {
+    const { contacts } = this.state;
+    const idx = contacts.findIndex(
+      contact => contact.id === e.target.dataset.id
+    );
+    contacts.splice(idx, 1);
+    this.setState({ contacts: contacts });
+  };
   render() {
     const { filter } = this.state;
     return (
@@ -50,7 +59,10 @@ export class App extends Component {
 
         <h2>Contacts</h2>
         <Filter filter={filter} onChange={this.onChangeFilter} />
-        <ContactList contacts={this.filteredContacts()} />
+        <ContactList
+          contacts={this.filteredContacts()}
+          onRemove={this.removeContact}
+        />
       </div>
     );
   }

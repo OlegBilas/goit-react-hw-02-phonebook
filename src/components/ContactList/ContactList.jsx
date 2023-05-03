@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ContactList = ({ contacts }) => {
+const ContactList = ({ contacts, onRemove }) => {
   return (
     <ul>
       {contacts.map(({ id, name, number }) => (
         <li key={id}>
           {name}: {number}
+          <button data-id={id} onClick={onRemove}>
+            Delete
+          </button>
         </li>
       ))}
     </ul>
