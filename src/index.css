@@ -24,7 +24,7 @@ a,
 button {
   padding: 4px 10px;
   border-radius: 4px;
-  background-color: #fffff;
+  background-color: #ffffff;
 }
 
 a:hover,
@@ -33,7 +33,7 @@ button:hover,
 button:focus {
   cursor: pointer;
   padding: 2 px 10px;
-  background-color: rgba(85, 106, 189, 0.497);
+  background-color: rgba(19, 55, 201, 0.497);
 }
 
 h1,

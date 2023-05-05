@@ -52,7 +52,9 @@ export default class ContactForm extends Component {
           onChange={this.handleChange}
         />
 
-        <button type="submit">Add contact</button>
+        <button type="submit" disabled={!name || !number}>
+          Add contact
+        </button>
       </Form>
     );
   }
