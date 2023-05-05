@@ -3,6 +3,8 @@ import ContactForm from 'components/ContactForm/ContactForm';
 import Filter from 'components/Filter/Filter';
 import ContactList from 'components/ContactList/ContactList';
 
+import { Wrapper, TitlePhonebook, TitleContacts } from './App.styled';
+
 export class App extends Component {
   state = {
     contacts: [
@@ -24,7 +26,7 @@ export class App extends Component {
       return { contacts: [data, ...contacts] };
     });
 
-  onChangeFilter = e => {
+  handleChangeFilter = e => {
     this.setState({ filter: e.target.value });
   };
 
@@ -53,17 +55,17 @@ export class App extends Component {
   render() {
     const { filter } = this.state;
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <Wrapper>
+        <TitlePhonebook>Phonebook</TitlePhonebook>
         <ContactForm onSubmit={this.onSubmit} />
 
-        <h2>Contacts</h2>
-        <Filter filter={filter} onChange={this.onChangeFilter} />
+        <TitleContacts>Contacts</TitleContacts>
+        <Filter filter={filter} onChange={this.handleChangeFilter} />
         <ContactList
           contacts={this.filteredContacts()}
           onRemove={this.removeContact}
         />
-      </div>
+      </Wrapper>
     );
   }
 }
