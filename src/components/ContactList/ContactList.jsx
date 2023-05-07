@@ -9,9 +9,7 @@ const ContactList = ({ contacts, onRemove }) => {
         <Item key={id}>
           <Name>{name}:</Name>
           <Number>{number}</Number>
-          <button data-id={id} onClick={onRemove}>
-            Delete
-          </button>
+          <button onClick={() => onRemove(id)}>Delete</button>
         </Item>
       ))}
     </List>
